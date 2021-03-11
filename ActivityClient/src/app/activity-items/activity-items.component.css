@@ -1,0 +1,22 @@
+.activity-card {
+  width: 100%;
+}
+table {
+  width: 100%;
+}
+
+button {
+ background: grey; 
+}
+
+mat-input { 
+  color: black;      
+}
+
+::placeholder {
+ color: rgba(63, 63, 63, 0.363);
+}
+
+mat-label {
+  color:  black;
+}

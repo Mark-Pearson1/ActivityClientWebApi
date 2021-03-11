@@ -1,0 +1,83 @@
+<mat-grid-list cols="6" rowHeight="100px">
+    <mat-grid-tile    
+        [colspan]="2"
+        [rowspan]="2" >
+    </mat-grid-tile>    
+    <mat-grid-tile
+        [colspan]="2"
+        [rowspan]="2">
+        <mat-card *ngIf='true' class="activity-card">
+            <mat-card-header>                
+                <mat-card-title>Bored API Activity</mat-card-title>
+            </mat-card-header>
+                <mat-card-content>
+                    <div><span>Key: </span>{{activityItem.key}}</div>
+                    <div><span>Activity: </span>{{activityItem.activity}}</div>
+                    <div><span>Type: </span>{{activityItem.type}}</div>
+                    <div><span>Participants: </span>{{activityItem.participants}}</div>
+                    <div><span>Price: </span>{{activityItem.price}}</div>
+                    <div><span>Link: </span>{{activityItem.link}}</div>
+                    <div><span>Accessibility: </span>{{activityItem.accessibility}}</div>
+                </mat-card-content>
+        </mat-card>
+    </mat-grid-tile> 
+    <mat-grid-tile    
+        [colspan]="2"
+        [rowspan]="2">
+    </mat-grid-tile>
+    <mat-grid-tile    
+        [colspan]="2"
+        [rowspan]="1">
+    </mat-grid-tile>
+    <mat-grid-tile    
+    [colspan]="1"
+    [rowspan]="1" >
+        <button mat-button (click)="getActivity()">Get Activity</button>
+    </mat-grid-tile>
+    <mat-grid-tile    
+    [colspan]="1"
+    [rowspan]="1" >
+        <button mat-button (click)="deleteDisplayedActivitiesAndRefresh()" >Delete Displayed Items</button>
+    </mat-grid-tile>  
+    <mat-grid-tile    
+        [colspan]="2"
+        [rowspan]="1">
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput id="filter" (keyup)="applyFilter($event)" placeholder="Filter here" #input>
+</mat-form-field>
+<table mat-table *ngIf='true' [dataSource]="activityItems">
+    <ng-container matColumnDef="key">
+        <th mat-header-cell *matHeaderCellDef>Key</th>
+        <td mat-cell *matCellDef="let activity">{{activity.key}}</td>
+    </ng-container>
+    <ng-container matColumnDef="activity">
+       <th mat-header-cell *matHeaderCellDef>Activity</th>
+       <td mat-cell *matCellDef="let activity">{{activity.activity}}</td>
+   </ng-container>
+   <ng-container matColumnDef="type">
+       <th mat-header-cell *matHeaderCellDef>Type</th>
+       <td mat-cell *matCellDef="let activity">{{activity.type}}</td>
+   </ng-container>
+   <ng-container matColumnDef="participants">
+       <th mat-header-cell *matHeaderCellDef>Participants</th>
+       <td mat-cell *matCellDef="let activity">{{activity.participants}}</td>
+   </ng-container>
+   <ng-container matColumnDef="price">
+       <th mat-header-cell *matHeaderCellDef>Price</th>
+       <td mat-cell *matCellDef="let activity">{{activity.price}}</td>
+   </ng-container>
+   <ng-container matColumnDef="link">
+       <th mat-header-cell *matHeaderCellDef>Link</th>
+       <td mat-cell *matCellDef="let activity">{{activity.link}}</td>
+   </ng-container>
+   <ng-container matColumnDef="accessibility">
+       <th mat-header-cell *matHeaderCellDef>Accessibility</th>
+       <td mat-cell *matCellDef="let activity">{{activity.accessibility}}</td>
+   </ng-container>
+   
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+   </table>
