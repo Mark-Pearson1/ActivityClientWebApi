@@ -10,11 +10,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class ActivityService {
 
-  private boredApiUrl = 'http://www.boredapi.com/api/activity/';  // URL to web api
-  private APIUrl = "https://localhost:5001/ActivityItem";
+  private boredApiUrl = 'http://www.boredapi.com/api/activity/';  // URL to Bored Activity Web Api
+  private APIUrl = 'https://localhost:5001/ActivityItem'; // URL to Web Api
   
-
-
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
@@ -28,47 +26,35 @@ export class ActivityService {
       );
   }
 
-    /** Log a ActivityService message with the MessageService */
-    private log(message: string) {
-      this.messageService.add(`ActivityService: ${message}`);
-    }
-    /**
-    * Handle Http operation that failed.
-    * Let the app continue.
-    * @param operation - name of the operation that failed
-    * @param result - optional value to return as the observable result
-    */
-    private handleError<T>(operation = 'operation', result?: T) {
-      return (error: any): Observable<T> => {
-  
-        // TODO: send the error to remote logging infrastructure
-        console.error(error); // log to console instead
-  
-        // TODO: better job of transforming error for user consumption
-        this.log(`${operation} failed: ${error.message}`);
-  
-        // Let the app keep running by returning an empty result.
-        return of(result as T);
-      };
-    }
+  private log(message: string) {
+    this.messageService.add(`ActivityService: ${message}`);
+  }
 
-    getAPIActivityItems(): Observable<ActivityItem[]> {
-      return this.http.get<ActivityItem[]>(this.APIUrl)
-        .pipe(
-          tap(_ => this.log('fetched API Activity Items')),        
-          catchError(this.handleError<ActivityItem[]>('getAPIActivityItems', []))
-        );
-    }
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      this.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
 
-    postAPIActivityItem(activityItem: ActivityItem): Observable<ActivityItem>{      
-      return this.http.post<ActivityItem>(this.APIUrl, activityItem);
-    }
+  getAPIActivityItems(): Observable<ActivityItem[]> {
+    return this.http.get<ActivityItem[]>(this.APIUrl)
+      .pipe(
+        tap(_ => this.log('Get API Activity Items')),        
+        catchError(this.handleError<ActivityItem[]>('getAPIActivityItems', []))
+      );
+  }
 
-    deleteAPIActivityItems(activityItemKeys: number[]): Observable<ActivityItem[]>{      
-      var httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-        body: activityItemKeys
-      };      
-      return this.http.delete<ActivityItem[]>(this.APIUrl, httpOptions);
-    }
+  postAPIActivityItem(activityItem: ActivityItem): Observable<ActivityItem>{      
+    return this.http.post<ActivityItem>(this.APIUrl, activityItem);
+  }
+
+  deleteAPIActivityItems(activityItemKeys: number[]): Observable<ActivityItem[]>{      
+    var httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      body: activityItemKeys
+    };      
+    return this.http.delete<ActivityItem[]>(this.APIUrl, httpOptions);
+  }
 }

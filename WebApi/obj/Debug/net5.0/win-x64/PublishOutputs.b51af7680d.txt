@@ -1,0 +1,11 @@
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\appsettings.Development.json
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\appsettings.json
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\WebApi.pdb
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\clrcompression.dll
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\clrjit.dll
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\coreclr.dll
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\mscordaccore.dll
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\aspnetcorev2_inprocess.dll
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Mark\Desktop\ActivityClientWebApi\WebApi\bin\Debug\net5.0\win-x64\publish\WebApi.exe

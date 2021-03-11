@@ -65,6 +65,7 @@ namespace WebApi.Controllers
         }
 
         private bool ItemExists(int key) => _context.ActivityItems.Any(e => e.Key == key);
+        
         private static ActivityItemDTO ItemToDTO(ActivityItem item) => new ActivityItemDTO
         {
             Key = item.Key,
@@ -75,6 +76,5 @@ namespace WebApi.Controllers
             Link = item.Link,
             Accessibility = item.Accessibility
         };
-
     }
 }

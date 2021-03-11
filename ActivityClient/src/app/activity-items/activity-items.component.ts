@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChil
 import { Observable, of } from 'rxjs';
 import { ActivityService } from '../activity.service';
 import { ActivityItem } from '../activityItem'
-import { MessageService } from '../message.service';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatInput } from '@angular/material/input';
 
@@ -23,10 +22,8 @@ export class ActivityItemsComponent implements OnInit {
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatInput) filterInput: MatInput;
 
-
   constructor(private activityService: ActivityService, private changeDerectorRefs: ChangeDetectorRef) { 
-    this.dataSource = new MatTableDataSource(this.activityItems)
-    
+    this.dataSource = new MatTableDataSource(this.activityItems)    
   }
 
   ngOnInit(): void {
