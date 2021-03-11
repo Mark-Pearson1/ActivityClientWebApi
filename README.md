@@ -8,16 +8,16 @@
 3) With this running the API is now available to be used.
 
 ### API Use
-GET /ActivityItem:
+`GET /ActivityItem`:
   Returns all stored activity items.
 
-GET /ActivityItem/{key}
+`GET /ActivityItem/{key}`:
   Returns stored activity item with given key.
 
-POST /ActivityItem application/json: ActivityItem
+`POST /ActivityItem application/json: ActivityItem`:
   Stores given activity item if no currently stored activity item shares its key.
   
-DELETE /ActivityItem application/json: int[]
+`DELETE /ActivityItem application/json: int[]`:
   Deletes stored activity item(s) for keys in provided list. 
 
 ## Decisions, Omissions and Ideas for continued development
